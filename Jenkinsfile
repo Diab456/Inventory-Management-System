@@ -11,30 +11,25 @@ pipeline {
     }
 
     stages {
-        stage('Checkout') {
-            steps {
-                git branch: 'main', url: 'git@github.com:Diab456/Inventory-Management-System.git'
-            }
-        }
         stage('Build') {
             steps {
-                dir('F:\\NetBeans\\Spring Boot\\InitializrSpringbootProject1') {
-                    sh 'mvn clean package'
+                dir('F:/NetBeans/Spring Boot/InitializrSpringbootProject1') {
+                    bat 'mvn clean package'
                 }
             }
         }
         stage('Test') {
             steps {
-                dir('F:\\NetBeans\\Spring Boot\\InitializrSpringbootProject1') {
-                    sh 'mvn test'
+                dir('F:/NetBeans/Spring Boot/InitializrSpringbootProject1') {
+                    bat 'mvn test'
                 }
             }
         }
         stage('Deploy') {
             steps {
                 script {
-                    sh "docker build -t ${DOCKER_IMAGE} ."
-                    sh "docker run -d -p 8080:8080 ${DOCKER_IMAGE}"
+                    bat "docker build -t ${DOCKER_IMAGE} ."
+                    bat "docker run -d -p 8080:8080 ${DOCKER_IMAGE}"
                 }
             }
         }

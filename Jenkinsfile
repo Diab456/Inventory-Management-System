@@ -18,14 +18,14 @@ pipeline {
         }
         stage('Build') {
             steps {
-                dir('F:\NetBeans\Spring Boot\InitializrSpringbootProject1') {
+                dir('F:\\NetBeans\\Spring Boot\\InitializrSpringbootProject1') {
                     sh 'mvn clean package'
                 }
             }
         }
         stage('Test') {
             steps {
-                dir('F:\NetBeans\Spring Boot\InitializrSpringbootProject1') {
+                dir('F:\\NetBeans\\Spring Boot\\InitializrSpringbootProject1') {
                     sh 'mvn test'
                 }
             }

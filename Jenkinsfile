@@ -13,7 +13,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://github.com/Diab456/Inventory-Management-System.git']]])
+                git branch: 'main', url: 'git@github.com:Diab456/Inventory-Management-System.git'
             }
         }
         stage('Build') {
